@@ -1,0 +1,10 @@
+{% extends "todo/main.html" %}{% block content %}
+<h1>ARE YOU SURE TO DELETE IT.</h1>
+
+<form method="POST">
+  {% csrf_token %}
+
+  <input type="submit" value="YES, DELETE" />
+  <a href="{% url 'tasklist' %}">NO, GO-BACK</a>
+</form>
+{% endblock content %}

@@ -1,0 +1,7 @@
+{% extends "todo/main.html" %}{% block content %}
+<h1>Task_Name: {{task}}</h1>
+<h3>Task_description: {{task.description}}</h3>
+
+<button><a href="{% url 'tasklist' %}">Go_Back</a></button>
+
+{% endblock content %}

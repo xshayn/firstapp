@@ -1,0 +1,53 @@
+{% extends "todo/main.html" %}{% block content %}
+<p class="user">Hello, {{request.user|title}}</p>
+<p>
+  <a href="{% url 'logout' %}"
+    ><i class="fa-sharp fa-solid fa-arrow-right-from-bracket">Logout</i></a
+  >
+</p>
+
+<h1>Todo List</h1>
+<form action="" method="get">
+  <input
+    class="search-bar"
+    type="text"
+    name="search-area"
+    placeholder="search
+  your inspiring task here..."
+  />
+  <input class="search-option" type="submit" value="search task" />
+</form>
+
+<table>
+  <h2>ThingsToDo</h2>
+  <tr>
+    {% for tasks in task%}
+  </tr>
+  <td>{{tasks.title| title}}</td>
+  <td>
+    <a href="{% url 'taskdelete' tasks.id %}"
+      ><i class="fa-sharp fa-solid fa-trash">Delete</i></a
+    >
+  </td>
+  <td>
+    <a href="{% url 'taskcreate' %}"><i class="fa-solid fa-plus">Add_new</i></a>
+  </td>
+  <td>
+    <a href="{% url 'taskdetail' tasks.id %}"
+      ><i class="fa-solid fa-eye">view</i></a
+    >
+  </td>
+  <td>
+    <a href="{% url 'taskupdate' tasks.id %}"
+      ><i class="fa-regular fa-pen-to-square">Update</i></a
+    >
+  </td>
+
+  {% empty %}
+  <h2>THERE IS NOTHING TO DO.</h2>
+  <a href="{% url 'taskcreate' %}"
+    >ADD NEW TASKS<i class="fa-solid fa-plus"></i
+  ></a>
+  {% endfor %}
+</table>
+{% endblock content%}

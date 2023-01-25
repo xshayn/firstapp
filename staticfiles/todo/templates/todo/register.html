@@ -1,0 +1,8 @@
+{% extends "todo/main.html" %}{% block content %}
+<h1>WE WANT YOU TO BE OUR FRIEND</h1>
+<h2>Register Now</h2>
+<form method="POST">
+  {% csrf_token %} {{form.as_p}} <input type="submit" value="Register" />
+</form>
+<h3>IF YOU HAVE AN ACCOUNT THEN , <a href="{% url 'login' %}">LoginHere</a></h3>
+{% endblock content%}

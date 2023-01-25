@@ -1,0 +1,12 @@
+{% extends "todo/main.html" %}{% block content %}
+<h1>Login</h1>
+
+<form method="POST">
+  {% csrf_token %} {{form.as_p}}
+  <input class="search-option" type="submit" value="login" />
+</form>
+
+<p class="user">
+  IF YOU HAVEN'T ANY ACCOUNT; <a href="{% url 'register' %}">RegisterHere</a>
+</p>
+{% endblock %}
